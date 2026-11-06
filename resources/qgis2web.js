@@ -520,6 +520,15 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 
 //layerswitcher
+var layerSwitcherControl = new LayerSwitcher({
+    activationMode: 'click',
+    startActive: false,
+    tipLabel: 'Show layers',
+    collapseTipLabel: 'Hide layers',
+    reverse: false
+});
+map.addControl(layerSwitcherControl);
+
 
 
 
