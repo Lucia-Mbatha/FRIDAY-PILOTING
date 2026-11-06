@@ -243,6 +243,19 @@ var lyr_ARCGISONLINErivers_15 = new ol.layer.Vector({
 
 lyr_ARCGISONLINEcounty_boundary_0.setVisible(true);lyr_ARCGISONLINEsubcounty_boundary_1.setVisible(true);lyr_ARCGISONLINEwards_boudary_2.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSNational_3.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSAgriculture_Forestry_Fishing_4.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSArt_Entertainment_Recreation_5.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSConstruction_6.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSEducation_7.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSFinancial_Insurance_8.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSHealth_9.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSinformation_communication_10.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSManufacturing_11.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSProfessional_12.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSReal_Estate_13.setVisible(true);lyr_MAKUENIBSESTABLISHMENTSTransportation_Storage_14.setVisible(true);lyr_ARCGISONLINErivers_15.setVisible(true);
 var layersList = [lyr_ARCGISONLINEcounty_boundary_0,lyr_ARCGISONLINEsubcounty_boundary_1,lyr_ARCGISONLINEwards_boudary_2,lyr_MAKUENIBSESTABLISHMENTSNational_3,lyr_MAKUENIBSESTABLISHMENTSAgriculture_Forestry_Fishing_4,lyr_MAKUENIBSESTABLISHMENTSArt_Entertainment_Recreation_5,lyr_MAKUENIBSESTABLISHMENTSConstruction_6,lyr_MAKUENIBSESTABLISHMENTSEducation_7,lyr_MAKUENIBSESTABLISHMENTSFinancial_Insurance_8,lyr_MAKUENIBSESTABLISHMENTSHealth_9,lyr_MAKUENIBSESTABLISHMENTSinformation_communication_10,lyr_MAKUENIBSESTABLISHMENTSManufacturing_11,lyr_MAKUENIBSESTABLISHMENTSProfessional_12,lyr_MAKUENIBSESTABLISHMENTSReal_Estate_13,lyr_MAKUENIBSESTABLISHMENTSTransportation_Storage_14,lyr_ARCGISONLINErivers_15];
+
+// OpenStreetMap basemap (kept beneath all project data layers)
+var osmLayer = new ol.layer.Tile({
+    source: new ol.source.OSM(),
+    title: 'OpenStreetMap',
+    type: 'base',
+    visible: true
+});
+layersList.unshift(osmLayer);
+// Register project datasets as selectable overlays in the layer switcher.
+layersList.slice(1).forEach(function(layer) {
+    layer.set('type', 'overlay');
+});
 lyr_ARCGISONLINEcounty_boundary_0.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'COUNTY_NAM': 'COUNTY_NAM', 'ID': 'ID', 'Shape_Leng': 'Shape_Leng', 'Shape_Area': 'Shape_Area', });
 lyr_ARCGISONLINEsubcounty_boundary_1.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'CONST_NAM': 'CONST_NAM', 'CONST_NO': 'CONST_NO', 'COUNTY_NAM': 'COUNTY_NAM', 'Shape_Leng': 'Shape_Leng', 'Shape_Area': 'Shape_Area', });
 lyr_ARCGISONLINEwards_boudary_2.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'CAW': 'CAW', 'CODE': 'CODE', 'Shape_Leng': 'Shape_Leng', 'Shape_Area': 'Shape_Area', 'business_e': 'business_e', 'Wards_': 'Wards_', 'Percentage': 'Percentage', });
