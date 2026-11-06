@@ -246,12 +246,16 @@ var layersList = [lyr_ARCGISONLINEcounty_boundary_0,lyr_ARCGISONLINEsubcounty_bo
 
 // OpenStreetMap basemap (kept beneath all project data layers)
 var osmLayer = new ol.layer.Tile({
-    source: new ol.source.OSM(),
+    source: new ol.source.XYZ({
+        url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        attributions: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>',
+        maxZoom: 19,
+        crossOrigin: 'anonymous'
+    }),
     title: 'OpenStreetMap',
     type: 'base',
     visible: true
 });
-layersList.unshift(osmLayer);
 // Register project datasets as selectable overlays in the layer switcher.
 layersList.slice(1).forEach(function(layer) {
     layer.set('type', 'overlay');
