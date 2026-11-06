@@ -11,6 +11,10 @@ var map = new ol.Map({
     })
 });
 
+// Add OpenStreetMap explicitly as the bottom map layer.
+osmLayer.setZIndex(0);
+map.addLayer(osmLayer);
+
 //initial view - epsg:3857 coordinates if not "Match project CRS"
 map.getView().fit([3772354.373806, -521233.235410, 4665565.362849, 604818.492910], map.getSize());
 
